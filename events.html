@@ -30,13 +30,15 @@
 		<!-- the mousewheel plugin -->
 		<script type="text/javascript" src="script/jquery.mousewheel.js"></script>
 		<!-- the jScrollPane script -->
-		<script type="text/javascript" src="script/jquery.jscrollpane.min.js"></script>
+		<script type="text/javascript" src="script/jquery.jscrollpane.js"></script>
 		<!-- scripts specific to this demo site -->
 		<script type="text/javascript" src="script/demo.js"></script>
 
 		<script type="text/javascript" id="sourcecode">
 			$(function()
 			{
+        $('.test-scroll-pane')
+            .jScrollPane({ verticalStickInterval: 50, horizontalStickInterval: 50 });
 				$('.scroll-pane')
 						.bind(
 							'jsp-initialised',
@@ -250,6 +252,24 @@
 					Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit
 					amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
 				</p>
+			</div>
+      <h2>verticalStickInterval and horizontalStickInterval</h2>
+<div class="test-scroll-pane" style="width:200px;height:200px">
+				<div style="width: 1000px;height:1000px;">
+          <div style="width:50px;height:50px;background-color:blue;float:left;"></div>
+          <div style="width:50px;height:50px;background-color:green;float:left;"></div>
+          <div style="clear:both"></div>
+          <div style="width:50px;height:50px;background-color:green;"></div>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in ligula id sem tristique ultrices
+					eget id neque. Duis enim turpis, tempus at accumsan vitae, lobortis id sapien. Pellentesque nec orci
+					mi, in pharetra ligula. Nulla facilisi. Nulla facilisi. Mauris convallis venenatis massa, quis
+					consectetur felis ornare quis. Sed aliquet nunc ac ante molestie ultricies. Nam pulvinar ultricies
+					bibendum. Vivamus diam leo, faucibus et vehicula eu, molestie sit amet dui. Proin nec orci et elit
+					semper ultrices. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+					mus. Sed quis urna mi, ac dignissim mauris. Quisque mollis ornare mauris, sed laoreet diam malesuada
+					quis. Proin vel elementum ante. Donec hendrerit arcu ac odio tincidunt posuere. Vestibulum nec risus
+					eu lacus semper viverra.
+				</div>
 			</div>
 			<h2>Page javascript</h2>
 			<div id="sourcecode-display">

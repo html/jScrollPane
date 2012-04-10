@@ -706,6 +706,11 @@
 				}
 				
 				updateVerticalArrows(isAtTop, isAtBottom);
+
+        if (settings.verticalStickInterval) {
+          destTop = destTop - (destTop % settings.verticalStickInterval);
+        }
+
 				pane.css('top', destTop);
 				elem.trigger('jsp-scroll-y', [-destTop, isAtTop, isAtBottom]).trigger('scroll');
 			}
@@ -753,6 +758,11 @@
 				}
 				
 				updateHorizontalArrows(isAtLeft, isAtRight);
+
+        if (settings.horizontalStickInterval) {
+          destLeft = destLeft - (destLeft % settings.horizontalStickInterval);
+        }
+
 				pane.css('left', destLeft);
 				elem.trigger('jsp-scroll-x', [-destLeft, isAtLeft, isAtRight]).trigger('scroll');
 			}
@@ -1357,6 +1367,8 @@
 	};
 
 	$.fn.jScrollPane.defaults = {
+    horizontalStickInterval: false,
+    verticalStickInterval: false,
 		showArrows					: false,
 		maintainPosition			: true,
 		stickToBottom				: false,
