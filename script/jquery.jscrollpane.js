@@ -707,12 +707,18 @@
 				
 				updateVerticalArrows(isAtTop, isAtBottom);
 
+        var triggerEvent = true;
+
         if (settings.verticalStickInterval) {
           destTop = destTop - (destTop % settings.verticalStickInterval);
+          triggerEvent = typeof(_positionDragY.lastTop) == 'undefined' || _positionDragY.lastTop != destTop;
+          _positionDragY.lastTop = destTop;
         }
 
 				pane.css('top', destTop);
-				elem.trigger('jsp-scroll-y', [-destTop, isAtTop, isAtBottom]).trigger('scroll');
+        if(triggerEvent){
+          elem.trigger('jsp-scroll-y', [-destTop, isAtTop, isAtBottom]).trigger('scroll');
+        }
 			}
 
 			function positionDragX(destX, animate)
@@ -759,12 +765,18 @@
 				
 				updateHorizontalArrows(isAtLeft, isAtRight);
 
+        var triggerEvent = true;
+
         if (settings.horizontalStickInterval) {
           destLeft = destLeft - (destLeft % settings.horizontalStickInterval);
+          triggerEvent = typeof(_positionDragX.lastLeft) == 'undefined' || _positionDragX.lastLeft != destLeft;
+          _positionDragX.lastLeft = destLeft;
         }
 
 				pane.css('left', destLeft);
-				elem.trigger('jsp-scroll-x', [-destLeft, isAtLeft, isAtRight]).trigger('scroll');
+        if(triggerEvent){
+          elem.trigger('jsp-scroll-x', [-destLeft, isAtLeft, isAtRight]).trigger('scroll');
+        }
 			}
 
 			function updateVerticalArrows(isAtTop, isAtBottom)
